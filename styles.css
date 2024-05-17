@@ -4,6 +4,12 @@ body {
     margin: 0px;
     font-family: 'Belanosima', sans-serif;
     background-color: #123BA9;
+    overflow-x: hidden;
+}
+
+h1, h3, h4 {
+    text-align: center;
+    color: white;
 }
 
 h1 {
@@ -13,6 +19,7 @@ h1 {
     margin: 0px;
     padding-top: 100px;
 }
+
 h5 {
     text-align: center;
     color: white;
@@ -35,120 +42,249 @@ h4 {
     color: black;
 }
 
-.body {
+.computed-gpa {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #123BA9;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.computed-gpa label {
+  margin-right: 10px;
+}
+
+.computed-gpa span {
+  background-color: white;
+  color: #123BA9;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+@media (min-width: 768px) {
+    .body {
+        background-color: white;
+        margin: 50px 300px 0px;
+        padding: 100px;
+        padding-top: 20px;
+        font-size: 20px;
+        border-radius: 50px;
+        box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.553);
+    }
+
+    .units, .grade, .gradeTimesUnits {
+        text-align: right;
+        width: 150px;
+    }
+
+    input {
+        width: 40%;
+        border-top: white;
+        border-right: white;
+        border-left: white;
+        font-family: 'Belanosima', sans-serif;
+        font-size: 20px;
+        text-align: right;
+    }
+
+    input:focus {
+        outline: none;
+        border-bottom: #123BA9 solid;
+    }
+
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    #grades {
+        width: 100%;
+        height: 60%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    th, td {
+        border: 1px solid rgba(0, 0, 0, 0.215);
+        border-top: transparent;
+        border-left: transparent;
+        border-right: transparent;
+        padding: 30px 0px 30px 0px;
+    }
+
+    .compute {
+        height: 30px;
+        width: 200px;
+        position: relative;
+        top: 30px;
+        left: 520px;
+        font-family: 'Belanosima', sans-serif;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    .print {
+        height: 30px;
+        width: 30px;
+        position: relative;
+        top: 27px;
+        left: -210px;
+        font-size: 50px;
+        color: #123BA9;
+        transition: transform 0.2s ease;
+    }
+
+    .print:hover {
+        color: #123BA9;
+        transform: scale(1.1);
+    }
+
+    button:hover {
+        background-color: #123BA9;
+        color: white;
+    }
+
+    button {
+        border-width: 0.1px;
+    }
+
+    .avg {
+        color: red;
+    }
+
+    .gradient1 {
+        height: 400px;
+        background-color: none;
+        background-image: linear-gradient(#123BA9, #081742, #081742, #081742);
+    }
+
+    .banner {
+        background: linear-gradient(rgba(8, 23, 66, 0.395), #123BA9), url(bg.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 35vh;
+    }
+
+    h1 {
+        position: relative;
+        top: 0px;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 767px) {
+    .body {
+        background-color: white;
+        margin: 20px 10px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.553);
+        font-size: 16px;
+    }
+
+    .units, .grade, .gradeTimesUnits {
+        text-align: left;
+        width: auto;
+    }
+    
+    h1 {
+        font-size: 70px;
+        margin: 0px;
+        padding-top: 100px;
+    }
+    h3 {
+        font-size: 44px;
+    }
+    h4 {
+        font-size: 25px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 16px;
+        border-top: white;
+        border-right: white;
+        border-left: white;
+    }
+
+    #grades {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 15px 5px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .compute, .print {
+        width: 100%;
+        margin-top: 20px;
+        left: 0;
+    }
+
+    .compute {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    .print {
+        font-size: 30px;
+        color: #123BA9;
+    }
+
+    .gradient1 {
+        height: 200px;
+        background-image: linear-gradient(#123BA9, #081742);
+    }
+
+    .banner {
+        height: 25vh;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 50px;
+    }
+    h3 {
+        font-size: 21px;
+    }
+    h4 {
+        font-size: 11px;
+    }
+}
+
+@media print {
+  /* Reset any unwanted styles for printing */
+  body {
     background-color: white;
-    margin: 50px 300px 0px;
-    height: 100%;
-    padding: 100px;
-    padding-top: 20px;
-    font-size: 20px;
-    border-radius: 50px;
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.553);
+  }
+  .banner {
+    display: none; /* Hide the banner when printing */
+  }
+  /* Adjust the font size and other styles as needed for printing */
+  .body {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: none; /* Remove box-shadow for printing */
+    font-size: 16px; /* Adjust font size for printing */
+  }
+  /* Add more print-specific styles as needed */
+
+  /* Ensure the canvas retains its size on print */
+  canvas {
+    width: 100% !important; /* Ensure the canvas takes up the full width on print */
+    height: auto !important; /* Allow the height to adjust proportionally */
+  }
 }
 
-.units,
-.grade,
-.gradeTimesUnits { /* Updated for the new column */
-    text-align: right;
-    width: 150px;
-}
-
-input {
-    width: 40%;
-    border-top: white;
-    border-right: white;
-    border-left: white;
-    font-family: 'Belanosima', sans-serif;
-    font-size: 20px;
-    text-align: right;
-}
-
-input:focus {
-    outline: none;
-    border-bottom: #123BA9 solid;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    display: none;
-}
-
-#grades {
-    width: 100%;
-    height: 60%;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-th,
-td {
-    border: 1px solid rgba(0, 0, 0, 0.215);
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    padding: 30px 0px 30px 0px;
-}
-
-.compute {
-    height: 30px;
-    width: 200px;
-    position: relative;
-    top: 30px;
-    left: 520px;
-    font-family: 'Belanosima', sans-serif;
-    font-size: 20px;
-    border-radius: 5px;
-}
-
-.print {
-    height: 30px;
-    width: 30px;
-    position: relative;
-    top: 27px;
-    left: -210px;
-    font-size: 50px;
-    color: #123BA9;
-    transition: transform 0.2s ease; /* Added transition for smooth scaling */
-}
-
-.print:hover {
-    color: #123BA9;
-    transform: scale(1.1); /* Increase the size on hover */
-}
-
-button:hover {
-    background-color: #123BA9;
-    color: white;
-}
-
-
-
-button {
-    border-width: 0.1px;
-}
-
-.avg {
-    color: red;
-}
-
-.gradient1 {
-    height: 400px;
-    background-color: none;
-    background-image: linear-gradient(#123BA9, #081742, #081742, #081742);
-}
-
-.banner {
-    background: linear-gradient(rgba(8, 23, 66, 0.395), #123BA9), url(bg.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 35vh;
-}
-
-h1 {
-    position: relative;
-    top: 0px;
-}
-
-button {
-    cursor: pointer;
-}
