@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Righteous&display=swap');
+
+body {
+    margin: 0px;
+    font-family: 'Belanosima', sans-serif;
+    background-color: #123BA9;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 120px;
+    margin: 0px;
+    padding-top: 100px;
+}
+h5 {
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    margin: 0px;
+    padding-top: -10px;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: #123BA9;
+}
+
+h4 {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 0px;
+    color: black;
+}
+
+.body {
+    background-color: white;
+    margin: 50px 300px 0px;
+    height: 100%;
+    padding: 100px;
+    padding-top: 20px;
+    font-size: 20px;
+    border-radius: 50px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.553);
+}
+
+.units,
+.grade,
+.gradeTimesUnits { /* Updated for the new column */
+    text-align: right;
+    width: 150px;
+}
+
+input {
+    width: 40%;
+    border-top: white;
+    border-right: white;
+    border-left: white;
+    font-family: 'Belanosima', sans-serif;
+    font-size: 20px;
+    text-align: right;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: #123BA9 solid;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+#grades {
+    width: 100%;
+    height: 60%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    border: 1px solid rgba(0, 0, 0, 0.215);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    padding: 30px 0px 30px 0px;
+}
+
+.compute {
+    height: 30px;
+    width: 200px;
+    position: relative;
+    top: 30px;
+    left: 520px;
+    font-family: 'Belanosima', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.print {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 27px;
+    left: -210px;
+    font-size: 50px;
+    color: #123BA9;
+    transition: transform 0.2s ease; /* Added transition for smooth scaling */
+}
+
+.print:hover {
+    color: #123BA9;
+    transform: scale(1.1); /* Increase the size on hover */
+}
+
+button:hover {
+    background-color: #123BA9;
+    color: white;
+}
+
+
+
+button {
+    border-width: 0.1px;
+}
+
+.avg {
+    color: red;
+}
+
+.gradient1 {
+    height: 400px;
+    background-color: none;
+    background-image: linear-gradient(#123BA9, #081742, #081742, #081742);
+}
+
+.banner {
+    background: linear-gradient(rgba(8, 23, 66, 0.395), #123BA9), url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+}
+
+h1 {
+    position: relative;
+    top: 0px;
+}
+
+button {
+    cursor: pointer;
+}

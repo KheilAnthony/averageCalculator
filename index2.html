@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Average Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="banner">
+      <h1>GWA Calculator</h1>
+      <h5>Made By: Kheil Anthony Cunanan</h5>
+    </div>
+
+    <div id="parent-container">
+      <div class="body">
+        <h3>BS - CpE 3A 1st Semester</h3>
+        <h4>University of Rizal System Antipolo Campus</h4>
+        <table id="grades">
+          <tr>
+            <th>Subject:</th>
+            <th class="units">Units:</th>
+            <th class="grade">Grade:</th>
+            <th class="gradeTimesUnits">Grade x Units:</th>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Understanding the Self:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="i"
+                onchange="calculateGradeTimesUnits('i')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="i_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Operating System:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="b"
+                onchange="calculateGradeTimesUnits('b')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="b_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Logics Circuit and Design:</td>
+            <td class="units">4</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="a"
+                onchange="calculateGradeTimesUnits('a')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="a_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Fundamentals of Mixed Signals and Sensors:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="f"
+                onchange="calculateGradeTimesUnits('f')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="f_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Feedback and Control System:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="e"
+                onchange="calculateGradeTimesUnits('e')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="e_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Introduction to HDL</td>
+            <td class="units">1</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="d"
+                onchange="calculateGradeTimesUnits('d')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="d_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Data and Digital Communications:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="c"
+                onchange="calculateGradeTimesUnits('c')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="c_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Readings in Philippine History:</td>
+            <td class="units">3</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="h"
+                onchange="calculateGradeTimesUnits('h')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="h_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr>
+            <td>Computer Engineering Drafting and Design:</td>
+            <td class="units">1</td>
+            <td class="grade">
+              <input
+                type="number"
+                id="g"
+                onchange="calculateGradeTimesUnits('g')"
+              />
+            </td>
+            <td class="gradeTimesUnits" id="g_gtu">0</td>
+            <!-- New column -->
+          </tr>
+          <tr class="avg">
+            <td>Average:</td>
+            <td class="units">24</td>
+            <td class="grade" id="avg">0</td>
+            <td class="gradeTimesUnits" id="total_gtu">0</td>
+            <!-- New column -->
+          </tr>
+        </table>
+
+        <button
+          data-html2canvas-ignore="true"
+          class="compute"
+          type="submit"
+          onclick="average()"
+        >
+          Compute
+        </button>
+        <i
+          data-html2canvas-ignore="true"
+          class="fa fa-print fa-lg print"
+          onclick="transformToImage()"
+          aria-hidden="true"
+        ></i>
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="gradient1"></div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+      function downloadImage(dataUrl) {
+        var link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "grades.png";
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function transformToImage() {
+        // Get the body element
+        const body = document.body;
+
+        // Set the width and height of the screenshot to match the body's dimensions
+        const width = body.offsetWidth;
+        const height = body.offsetHeight;
+
+        // Create a canvas with the same dimensions as the body
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+
+        // Create a promise to wait for the HTML2Canvas to finish
+        const html2CanvasPromise = html2canvas(body, {
+          width: width,
+          height: height,
+        });
+
+        // Once the HTML2Canvas is done, draw the image onto the canvas
+        html2CanvasPromise.then(function (renderedCanvas) {
+          ctx.drawImage(renderedCanvas, 0, 0, width, height);
+
+          // Get the data URL of the canvas
+          const dataUrl = canvas.toDataURL("image/png");
+          downloadImage(dataUrl);
+        });
+      }
+      function transformToImage() {
+        const bodyElement = document.querySelector(".body");
+
+        // Get the width and height of the .body element
+        const width = bodyElement.offsetWidth;
+        const height = bodyElement.offsetHeight;
+
+        // Create a canvas with the same dimensions as the .body element
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+
+        // Create a promise to wait for HTML2Canvas to finish
+        const html2CanvasPromise = html2canvas(bodyElement, {
+          width: width,
+          height: height,
+        });
+
+        // Once HTML2Canvas is done, draw the image onto the canvas
+        html2CanvasPromise.then(function (renderedCanvas) {
+          ctx.drawImage(renderedCanvas, 0, 0, width, height);
+
+          // Get the data URL of the canvas
+          const dataUrl = canvas.toDataURL("image/png");
+          downloadImage(dataUrl);
+        });
+      }
+
+      function calculateGradeTimesUnits(id) {
+        const gradeInput = document.getElementById(id);
+        const units = parseInt(
+          gradeInput.parentElement.previousElementSibling.textContent
+        );
+        const gradeTimesUnits = units * parseFloat(gradeInput.value) || 0;
+        const gradeTimesUnitsElement = document.getElementById(id + "_gtu");
+        gradeTimesUnitsElement.textContent = gradeTimesUnits.toFixed(2);
+        calculateTotalGradeTimesUnits();
+      }
+
+      function calculateTotalGradeTimesUnits() {
+        let totalGradeTimesUnits = 0;
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach((input) => {
+          const units = parseInt(
+            input.parentElement.previousElementSibling.textContent
+          );
+          const grade = parseFloat(input.value) || 0;
+          totalGradeTimesUnits += units * grade;
+        });
+        const totalGradeTimesUnitsElement =
+          document.getElementById("total_gtu");
+        totalGradeTimesUnitsElement.textContent =
+          totalGradeTimesUnits.toFixed(2);
+      }
+    </script>
+    <script src="script.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </body>
+</html>
